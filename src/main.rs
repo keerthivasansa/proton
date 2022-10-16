@@ -15,7 +15,7 @@ enum Heap<'a> {
     Bool(bool),
 }
 
-struct Context<'a> {
+pub struct Context<'a> {
     variable_map: HashMap<&'a str, Heap<'a>>,
 }
 
@@ -41,14 +41,6 @@ impl Context<'_> {
         return Context {
             variable_map: HashMap::new(),
         };
-    }
-}
-
-fn copy_heap(h:Heap) -> Heap {
-    match h {
-        Heap::Int(b) => Heap::Int(b),
-        Heap::Str(b) => Heap::Str(b),
-        Heap::Bool(b) => Heap::Bool(b),
     }
 }
 
